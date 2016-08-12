@@ -24,7 +24,7 @@ var Giant = (function (_super) {
     }
     Giant.prototype.move = function (distance) {
         if (distance === void 0) { distance = 10; }
-        console.log('--Giant');
+        console.log('--Giant moving');
         //super is literally the the parent class
         _super.prototype.move.call(this, distance);
     };
@@ -35,7 +35,14 @@ var Dwarf = (function (_super) {
     function Dwarf(name) {
         _super.call(this, name);
     }
+    Dwarf.prototype.move = function (distance) {
+        if (distance === void 0) { distance = 0.5; }
+        _super.prototype.move.call(this, distance);
+    };
     return Dwarf;
 }(Person));
+console.log('giant time');
 var giant = new Giant('big brian');
 giant.move();
+var dwarf = new Dwarf('small brian');
+dwarf.move();

@@ -18,7 +18,7 @@ class Giant extends Person {
 		super(name)
 	}
 	move(distance = 10){
-		console.log('--Giant')
+		console.log('--Giant moving')
 		//super is literally the the parent class
 		super.move(distance)
 	}
@@ -26,7 +26,14 @@ class Giant extends Person {
 
 class Dwarf extends Person {
 	constructor(name:string){ super(name) }
+	move(distance = 0.5){
+		super.move(distance)
+	}
 }
 
+console.log('giant time')
 let giant = new Giant('big brian')
 giant.move()
+
+let dwarf = new Dwarf('small brian')
+dwarf.move()
