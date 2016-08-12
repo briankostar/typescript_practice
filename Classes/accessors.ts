@@ -3,7 +3,7 @@
 
 //private -- cannot be accessed from outside class
 class Animal {
-	private name: string
+	protected name: string
 	constructor(theName:string){
 		this.name = theName
 	}
@@ -21,6 +21,10 @@ class Cat extends Animal{
 	constructor(){
 		super('cat')
 	}
+	//this method does not work because the name is a private property of Animal. To get it in subclasses, it has to be protected.
+	getName(){
+		return this.name
+	}
 }
 
 class Human {
@@ -31,7 +35,9 @@ class Human {
 }
 
 var cat = new Cat();
+cat.getName(); 	//getting property as method works
+console.log(cat.name)  //but you cannot get protected/private properties directly
 var human = new Human('brian');
 
-animal = cat;		//<--we can set animal to be cat as they share the same private declaration
-animal = human;		//<--not compatible even when properties are same because it has a different private property reference
+//animal = cat;		//<--we can set animal to be cat as they share the same private declaration
+//animal = human;		//<--not compatible even when properties are same because it has a different private property reference

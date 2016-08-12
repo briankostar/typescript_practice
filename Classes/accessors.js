@@ -22,6 +22,10 @@ var Cat = (function (_super) {
     function Cat() {
         _super.call(this, 'cat');
     }
+    //this method does not work because the name is a private property of Animal. To get it in subclasses, it has to be protected.
+    Cat.prototype.getName = function () {
+        return this.name;
+    };
     return Cat;
 }(Animal));
 var Human = (function () {
@@ -31,6 +35,8 @@ var Human = (function () {
     return Human;
 }());
 var cat = new Cat();
+cat.getName();
+console.log(cat.name);
 var human = new Human('brian');
-animal = cat;
-animal = human;
+//animal = cat;		//<--we can set animal to be cat as they share the same private declaration
+//animal = human;		//<--not compatible even when properties are same because it has a different private property reference 
