@@ -38,7 +38,7 @@ class Human {
 
 var cat = new Cat();
 cat.getName(); 	//getting property as method works
-console.log(cat.name)  //but you cannot get protected/private properties directly
+//console.log(cat.name)  //but you cannot get protected/private properties directly
 var human = new Human('brian');
 
 //animal = cat;		//<--we can set animal to be cat as they share the same private declaration
@@ -69,3 +69,4 @@ class Employee2 {
 }
 let emp2 = new Employee2()
 emp2.name = 'brian'	//works the same
+console.log('emp2 name is', emp2.name)
