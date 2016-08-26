@@ -16,3 +16,30 @@ let grid2 = new Grid(5)
 console.log(Grid.origin)
 console.log(grid1.distanceFromOrigin({x:10, y:10}))
 console.log(grid2.distanceFromOrigin({x:10, y:10}))
+
+
+
+//Abstract classes sets a guide for its subclasses. bit like interfaces.
+//it has properties and methods
+//methods with 'abstract' doesnt have implementation and must be implemented in subclass.
+
+abstract class Animal{
+	constructor(public name:string){}
+	abstract makeSound(): void;	
+	move():void {
+		console.log('moving around..')
+	}
+}
+
+class Cat extends Animal {
+	constructor(){
+		super('kitty') //constructor in subclass must call super
+	}
+	//this method must be implemented
+	makeSound():void{
+		console.log('meow meow')
+	}
+}
+//let animal = new Animal() //error. cannot make instance of abstract class.
+let cat = new Cat()
+cat.makeSound();
